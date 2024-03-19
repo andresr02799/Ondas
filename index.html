@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Péndulo Simple</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body>
+    <div id="medidorAngulo">Ángulo: 0°</div>
+    <div id="controles">
+        <label for="anguloInicial">Ángulo Inicial (-10° a 10°):</label>
+        <input type="number" id="anguloInicial" value="0" min="-10" max="10">
+        <br>
+        <br>
+        <label for="longitudPendulo">Longitud del Péndulo:</label>
+        <input type="number" id="longitudPendulo" value="300">
+        <br>
+        <br>
+        <label for="radioMasa">Radio de la Masa:</label>
+        <input type="number" id="radioMasa" value="20">
+        <br>
+        <br>
+        <button onclick="aplicarConfiguracion()">APLICAR</button>
+        <button onclick="reiniciar()">REINICIAR</button>
+    </div>
+    <canvas id="lienzo"></canvas>
+    <script src="script.js"></script>
+</body>
+
+</html>
