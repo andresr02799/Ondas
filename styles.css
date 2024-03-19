@@ -6,6 +6,8 @@ html {
     height: 100%;
     font-family: Arial, Helvetica, sans-serif;
     background-color: #fff;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 canvas {
@@ -98,4 +100,16 @@ canvas {
     margin: 0 auto;
     border-radius: 5px;
     margin-top: 20px;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 8px 0;
+    font-weight: bold;
 }

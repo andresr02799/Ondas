@@ -14,7 +14,6 @@
         <label for="anguloInicial">Ángulo Inicial (-10° a 10°):</label>
         <input type="number" id="anguloInicial" value="0" min="-10" max="10">
         <br>
-        <br>
         <label for="longitudPendulo">Longitud del Péndulo:</label>
         <input type="number" id="longitudPendulo" value="300">
         <br>
@@ -22,9 +21,11 @@
         <label for="radioMasa">Radio de la Masa:</label>
         <input type="number" id="radioMasa" value="20">
         <br>
-        <br>
         <button onclick="aplicarConfiguracion()">APLICAR</button>
-        <button onclick="reiniciar()">REINICIAR</button>
+        <button onclick="reiniciar()">REINICIAR</button> <!-- Nuevo botón para reiniciar -->
+    </div>
+    <div class="footer">
+        <p>Lab pendulo - Vibraciones y Ondas</p>
     </div>
     <canvas id="lienzo"></canvas>
     <script src="script.js"></script>
