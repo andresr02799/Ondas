@@ -1,7 +1,7 @@
 let angulo;
 let velocidadAngulo = 0; // Velocidad angular inicial
 let aceleracionAngulo = 0; // Aceleración angular inicial
-let amortiguacion = 0.995; // Amortiguación
+let amortiguacion = 1; // Amortiguación
 let gravedad = 0.4; // Fuerza de gravedad
 let longitudBrazoPendulo; // Longitud del brazo del péndulo
 let origen; // Origen del péndulo (punto de suspensión)
@@ -27,6 +27,7 @@ function configurar() {
     angulo = parseFloat(document.getElementById('anguloInicial').value) * Math.PI / 180;
     longitudBrazoPendulo = parseFloat(document.getElementById('longitudPendulo').value);
     radioMasa = parseFloat(document.getElementById('radioMasa').value);
+    amortiguacion = parseFloat(document.getElementById('amortiguacion').value);
 
     // Definir la posición inicial de la masa
     masa = { x: origen.x + longitudBrazoPendulo * Math.sin(angulo), y: origen.y + longitudBrazoPendulo * Math.cos(angulo) };
@@ -48,6 +49,11 @@ function configurar() {
         } else if (valor > 10) {
             anguloInput.value = 10;
         }
+    });
+    // Evento input para el campo de entrada de amortiguación
+    let amortiguacionInput = document.getElementById('amortiguacion');
+    amortiguacionInput.addEventListener('input', function () {
+        amortiguacion = parseFloat(amortiguacionInput.value);
     });
 }
 
@@ -96,17 +102,17 @@ function dibujar() {
     }
 
     // Dibujar la línea del ángulo
-ctx.beginPath();
-ctx.moveTo(origen.x, origen.y);
-ctx.lineTo(masa.x, masa.y);
-ctx.strokeStyle = 'red';
-ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(origen.x, origen.y);
+    ctx.lineTo(masa.x, masa.y);
+    ctx.strokeStyle = 'red';
+    ctx.stroke();
 
-// Dibujar el punto en el origen del péndulo (parte superior)
-ctx.beginPath();
-ctx.arc(origen.x, origen.y, 3, 0, Math.PI * 2); // El tercer parámetro es el radio del círculo (3 pixels)
-ctx.fillStyle = 'red'; // Color del punto
-ctx.fill(); // Rellenar el círculo
+    // Dibujar el punto en el origen del péndulo (parte superior)
+    ctx.beginPath();
+    ctx.arc(origen.x, origen.y, 3, 0, Math.PI * 2); // El tercer parámetro es el radio del círculo (3 pixels)
+    ctx.fillStyle = 'red'; // Color del punto
+    ctx.fill(); // Rellenar el círculo
 
     // Dibujar la masa
     ctx.beginPath();
@@ -168,6 +174,7 @@ function aplicarConfiguracion() {
     angulo = parseFloat(document.getElementById('anguloInicial').value) * Math.PI / 180;
     longitudBrazoPendulo = parseFloat(document.getElementById('longitudPendulo').value);
     radioMasa = parseFloat(document.getElementById('radioMasa').value);
+    amortiguacion = parseFloat(document.getElementById('amortiguacion').value); // Actualizar la amortiguación
 }
 
 window.onload = configurar;
